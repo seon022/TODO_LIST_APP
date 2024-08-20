@@ -5,6 +5,9 @@
 }
 
 /* 새 할일 new_Todo */
+.new_todo_wrap {
+    margin-bottom: 4rem;
+}
 .input_box {
     display: flex;
     justify-content: space-between;
@@ -27,29 +30,8 @@
     padding-right: 30px;
 }
 
-input[type="text"]::placeholder {
-    color: #c0c0c0;
-}
-
-select {
-    appearance: none;
-    background-image: url("../img/Polygon\ 1.png");
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 12px auto;
-}
-
-select::-ms-expand {
-    display: none;
-}
-/* 할일 목록 */
-.todo_style {
-}
-
 /* search 영역 */
-.search {
-    max-width: 1000px;
-    margin: 0 auto;
+.search .inner {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
@@ -332,12 +314,9 @@ select::-ms-expand {
 
 /* empty */
 .empty {
-    min-height: 431px;
     background-image: url("../img/empty.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40% auto;
-}
-/* 뷰 모달 */
-#viewModal {
+    transition: all 0.3s ease;
 }

@@ -10,10 +10,10 @@
     </head>
     <body>
         <div id="wrap">
-            <div class="app_title">
+            <section class="app_title">
                 <div class="inner"><h1>TODO LIST</h1></div>
-            </div>
-            <div class="new_todo_wrap inner">
+            </section>
+            <section class="new_todo_wrap inner">
                 <div class="box-shadow">
                     <h2 class="new_todo_title">NEW TODO</h2>
                     <div id="todoInput">
@@ -42,33 +42,35 @@
                         <button id="addItem" class="purple-button">ADD</button>
                     </div>
                 </div>
-            </div>
-            <div class="search">
-                <div class="search-container">
-                    <input
-                        type="text"
-                        id="searchInput"
-                        class="purple_input"
-                        placeholder="Search todo..."
-                    />
-                    <button id="searchButton">
-                        <img src="./img/search.png" alt="Search" />
-                    </button>
+            </section>
+            <section class="search">
+                <div class="inner">
+                    <div class="search-container">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            class="purple_input"
+                            placeholder="Search todo..."
+                        />
+                        <button id="searchButton">
+                            <img src="./img/search.png" alt="Search" />
+                        </button>
+                    </div>
+                    <div class="category">
+                        <select class="purple_input" id="filterCategory">
+                            <option value="">ALL</option>
+                            <option value="study">Study</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="category">
-                    <select class="purple_input" id="filterCategory">
-                        <option value="">ALL</option>
-                        <option value="study">Study</option>
-                        <option value="personal">Personal</option>
-                        <option value="work">Work</option>
-                    </select>
-                </div>
-            </div>
-            <div class="todo_list_wrap">
+            </section>
+            <section class="todo_list_wrap">
                 <ul id="todoList" class="inner"></ul>
-            </div>
+            </section>
             <!--TODO 수정모달 -->
-            <div id="editModal" class="modal">
+            <section id="editModal" class="modal">
                 <div class="modal-content">
                     <h2>TODO EDIT</h2>
                     <input type="text" id="editText" placeholder="Edit todo" />
@@ -91,9 +93,9 @@
                         <button id="saveEdit">Save</button>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- Todo 보기 모달 -->
-            <div id="viewModal" class="modal">
+            <section id="viewModal" class="modal">
                 <div class="modal-content">
                     <h2><span id="viewText"></span></h2>
                     <p>
@@ -106,7 +108,7 @@
                     </p>
                     <button id="closeViewModal" class="closeBtn">Cancel</button>
                 </div>
-            </div>
+            </section>
         </div>
     </body>
 </html>

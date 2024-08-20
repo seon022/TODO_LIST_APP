@@ -13,6 +13,7 @@ li.complete {
 body {
     background-color: #f7f7f7;
 }
+/* 입력 input 모양   */
 input,
 select {
     outline: none; /* 기본 포커스 아웃라인 제거 */
@@ -20,29 +21,48 @@ select {
     color: inherit; /* 부모 요소의 글씨 색상 상속 */
     appearance: none; /* 기본 스타일 제거 */
 }
+input[type="text"]::placeholder {
+    color: #c0c0c0;
+}
 
-/* common */
+select {
+    appearance: none;
+    background-image: url("../img/Polygon\ 1.png");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+}
+
+select::-ms-expand {
+    display: none;
+}
+section {
+    margin: 0 auto;
+}
+/*  여백 */
 h2 {
     margin-bottom: 40px;
 }
 .inner {
     max-width: 1000px;
-    margin: 0 auto;
     margin-bottom: 50px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.mt10 {
+    display: block;
+    margin-top: 10px;
 }
 /* Box Shadow Style */
 .box-shadow {
+    box-sizing: border-box;
     background-color: white; /* 배경색 */
     border-radius: 10px; /* 모서리 둥글기 */
     padding: 20px; /* 내부 여백 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
     transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
 }
-.mt10 {
-    display: block;
-    margin-top: 10px;
-}
-
+/* 버튼 btn */
 .purple-button {
     min-width: 100px;
     background-color: #6c63ff;
@@ -53,6 +73,7 @@ h2 {
     font-size: 16px;
     cursor: pointer;
 }
+/* 체크 여부  */
 .todo_completed {
     text-decoration: line-through;
     color: #999;
