@@ -1,6 +1,6 @@
 /* 제목 */
 .app_title {
-    padding-top: 80px;
+    padding-top: 5vh;
     margin-bottom: 40px;
 }
 
@@ -28,6 +28,9 @@
     box-sizing: border-box;
     background-color: white;
     padding-right: 30px;
+}
+#addItem {
+    margin: 0 auto;
 }
 
 /* search 영역 */
@@ -143,11 +146,6 @@
     cursor: move;
 }
 
-.todo-content span {
-    display: block;
-    line-height: 40px;
-}
-
 .button-container {
     display: flex;
 }
@@ -162,8 +160,10 @@
 }
 
 .todo-content span {
-    font-size: 16px;
-    font-weight: bold;
+    display: block;
+    line-height: 40px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .todo-content p {
@@ -206,6 +206,11 @@
 .delete-btn:hover {
     color: #6a0dad;
 }
+/* todolist  영역 */
+.todo_list_wrap {
+    padding-bottom: 5vh;
+}
+
 /* 수정 모달 */
 .modal {
     display: none;
@@ -288,13 +293,6 @@
     font-size: 18px;
 }
 
-#viewCategory {
-    padding: 4px 10px 6px 10px;
-    border-radius: 4px;
-    background-color: #9b98e1;
-    color: #fff;
-    font-weight: 600;
-}
 #closeViewModal {
     margin: 0 auto;
 }

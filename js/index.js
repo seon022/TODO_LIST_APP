@@ -36,7 +36,7 @@ function loadTodos() {
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
         todos = JSON.parse(storedTodos);
-        todos.sort((a, b) => a.orderNum - b.orderNum); // 순서대로 정렬
+        todos.sort((a, b) => b.orderNum - a.orderNum); // 역순서대로 정렬
     }
 
     renderTodos(); // 로드한 todos로 렌더링
@@ -47,29 +47,48 @@ function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// 새로운 todo 추가 시 전체 todos 렌더링
+// 새로운 todo 추가 시 데이터업데이트 & 전체 todos 렌더링!!
 addBtn.onclick = () => {
     const newTodo = {
         id: Date.now(),
-        text: todoText.value,
-        memo: todoMemo.value,
+        text: todoText.value, // 입력값 앞뒤 공백 제거
+        memo: todoMemo.value, // 입력값 앞뒤 공백 제거
         category: todoCategory.value,
         completed: false,
         orderNum: todos.length,
     };
 
-    // todos 배열에 새로운 todo 추가
-    todos.push(newTodo);
+    // text길이가 0보다 커야 함
+    let valid = true;
+    textCheck(newTodo, todoText);
 
-    // localStorage에 저장
-    saveTodos();
+    if (valid) {
+        // todos 배열에 새로운 todo 추가
+        todos.push(newTodo);
 
-    // 업데이트된 todos 배열로 전체 DOM 다시 렌더링
-    renderTodos();
+        // localStorage에 저장
+        todos = todos.sort((a, b) => b.orderNum - a.orderNum);
+        saveTodos();
 
-    // 입력 필드 초기화
-    clearInputs();
+        // 업데이트된 todos 배열로 전체 DOM 다시 렌더링
+        renderTodos();
+
+        // 입력 필드 초기화
+        clearInputs();
+    }
 };
+// 유효성 확인
+function textCheck(newTodo, todoText) {
+    // 텍스트가 없을 경우 경고 메시지로 placeholder 변경
+    if (newTodo.text.trim().length === 0) {
+        todoText.placeholder = "Text를 입력해주세요!";
+        todoText.classList.add("warning"); // 선택적으로 경고 시각 효과 추가
+        valid = false;
+    } else {
+        todoText.placeholder = "Input your todo..."; // 기존 placeholder로 복구
+        todoText.classList.remove("warning");
+    }
+}
 
 // 전체 todos 배열을 기반으로 리스트 렌더링
 function renderTodos() {
@@ -269,17 +288,27 @@ saveEdit.onclick = function () {
             category: editCategory.value,
         };
 
-        // localStorage에 저장
-        saveTodos();
+        // text 길이가 0보다 커야 함
+        let valid = true;
+        if (todos[todoIndex].text.trim().length < 1) {
+            valid = false;
+        }
+        if (valid) {
+            // localStorage에 저장
+            saveTodos();
 
-        // 업데이트된 todos 배열로 전체 DOM 다시 렌더링
-        renderTodos();
+            // 업데이트된 todos 배열로 전체 DOM 다시 렌더링
+            renderTodos();
 
-        // 모달 닫기
-        editModal.style.display = "none";
+            // 모달 닫기
+            editModal.style.display = "none";
+        } else {
+            prompt("todo 를 입력해주세요!");
+        }
     }
 };
 
+// 모달 외부 누르면 닫기
 closeModal.onclick = function () {
     editModal.style.display = "none";
 };
@@ -306,9 +335,10 @@ function dragStart(e) {
     }, 0);
 }
 
-function dragEnd(e) {
+function dragEnd() {
     draggedItem.classList.remove("dragging");
-    updateOrder(); // 드래그 종료 시 순서 업데이트
+    updateOrder();
+    // 드래그 종료 시 순서 업데이트
     draggedItem = null;
     draggedItemIndex = null;
 }

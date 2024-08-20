@@ -1,7 +1,17 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 ul,
-li {
+ol {
     list-style: none;
-    padding: 0;
+}
+
+a {
+    text-decoration: none;
 }
 li {
     font-size: 20px;
@@ -12,6 +22,10 @@ li.complete {
 }
 body {
     background-color: #f7f7f7;
+    font-family: "Noto Sans KR", sans-serif;
+}
+h1 {
+    font-size: 40px;
 }
 /* 입력 input 모양   */
 input,
@@ -41,6 +55,7 @@ section {
 }
 /*  여백 */
 h2 {
+    line-height: 1em;
     margin-bottom: 40px;
 }
 .inner {
