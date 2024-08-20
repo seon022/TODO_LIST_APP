@@ -86,6 +86,17 @@ function renderTodos() {
     }
 }
 
+// 체크박스 변경 이벤트 처리 함수 분리
+function handleCheckboxChange(todo, checkbox, textElement) {
+    todo.completed = checkbox.checked;
+    if (checkbox.checked) {
+        textElement.classList.add("todo_completed");
+    } else {
+        textElement.classList.remove("todo_completed");
+    }
+    saveTodos();
+}
+
 function addTodoItem(todo) {
     const newLi = document.createElement("li");
     newLi.classList.add("todo-item");
@@ -121,6 +132,9 @@ function addTodoItem(todo) {
     const newSpan = document.createElement("span");
     newSpan.textContent = todo.text;
 
+    if (newCheckbox.checked) {
+        newSpan.classList.add("todo_completed");
+    }
     todoContent.appendChild(newSpan);
 
     // 버튼 컨테이너
@@ -147,17 +161,9 @@ function addTodoItem(todo) {
 
     list.appendChild(newLi);
 
-    // 체크박스 변경 시
+    // 체크박스 변경 시 handleCheckboxChange 함수 호출
     newCheckbox.addEventListener("change", () => {
-        todo.completed = newCheckbox.checked;
-        if (newCheckbox.checked) {
-            newSpan.style.textDecoration = "line-through";
-            newSpan.style.color = "#999";
-        } else {
-            newSpan.style.textDecoration = "none";
-            newSpan.style.color = "#222";
-        }
-        saveTodos();
+        handleCheckboxChange(todo, newCheckbox, newSpan);
     });
 
     // todo text 클릭 시
@@ -175,11 +181,6 @@ function addTodoItem(todo) {
         saveTodos();
         renderTodos(); // 삭제 후 전체 리스트 다시 렌더링
     });
-
-    // Set initial style based on completed status
-    if (todo.completed) {
-        newSpan.style.textDecoration = "line-through";
-    }
 
     // Drag and drop event listeners
     newLi.setAttribute("draggable", true);
@@ -375,7 +376,6 @@ function updateOrder() {
             return null;
         })
         .filter((todo) => todo !== null);
-    console.log(todos);
     saveTodos();
 }
 
