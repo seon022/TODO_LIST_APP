@@ -11,7 +11,7 @@ const searchButton = document.querySelector("#searchButton");
 const filterCategory = document.querySelector("#filterCategory");
 
 // 수정 모달
-const modal = document.getElementById("editModal");
+const editModal = document.getElementById("editModal");
 const editText = document.getElementById("editText");
 const editMemo = document.getElementById("editMemo");
 const editCategory = document.getElementById("editCategory");
@@ -238,7 +238,7 @@ function openEditModal(todo) {
     editText.value = todo.text;
     editMemo.value = todo.memo;
     editCategory.value = todo.category;
-    modal.style.display = "block";
+    editModal.style.display = "block";
 }
 // 뷰 모달 open 함수
 function openViewModal(todo) {
@@ -254,7 +254,7 @@ function openEditModal(todo) {
     editText.value = todo.text;
     editMemo.value = todo.memo;
     editCategory.value = todo.category;
-    modal.style.display = "block";
+    editModal.style.display = "block";
 }
 
 saveEdit.onclick = function () {
@@ -275,17 +275,21 @@ saveEdit.onclick = function () {
         renderTodos();
 
         // 모달 닫기
-        modal.style.display = "none";
+        editModal.style.display = "none";
     }
 };
 
 closeModal.onclick = function () {
-    modal.style.display = "none";
+    editModal.style.display = "none";
+};
+
+closeViewModal.onclick = function () {
+    viewModal.style.display = "none";
 };
 
 window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == editModal) {
+        editModal.style.display = "none";
     }
     if (event.target == viewModal) {
         viewModal.style.display = "none";

@@ -38,6 +38,10 @@ h2 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
     transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
 }
+.mt10 {
+    display: block;
+    margin-top: 10px;
+}
 
 .purple-button {
     min-width: 100px;
@@ -55,7 +59,7 @@ h2 {
     margin-bottom: 40px;
 }
 
-/* 새 할일 */
+/* 새 할일 new_Todo */
 .input_box {
     display: flex;
     justify-content: space-between;
@@ -63,6 +67,8 @@ h2 {
 }
 .input_box select {
     margin-left: 10px;
+    background-color: #ffffff;
+    color: #999;
 }
 .purple_input {
     width: 100%;
@@ -139,7 +145,7 @@ select::-ms-expand {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #6c63ff;
     height: 40px;
 }
 
@@ -273,7 +279,7 @@ select::-ms-expand {
 .delete-btn:hover {
     color: #6a0dad;
 }
-/* 모달 */
+/* 수정 모달 */
 .modal {
     display: none;
     position: fixed;
@@ -286,13 +292,16 @@ select::-ms-expand {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 80%;
     max-width: 500px;
     border-radius: 5px;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    background-color: #fefefe;
 }
 
 .modal-content h2 {
@@ -311,9 +320,9 @@ select::-ms-expand {
     background-color: white;
     padding-right: 30px;
 }
-
 .modal-content button {
     min-width: 100px;
+    max-width: 160px;
     background-color: #6c63ff;
     color: white;
     border: none;
@@ -322,18 +331,47 @@ select::-ms-expand {
     font-size: 16px;
     cursor: pointer;
 }
+.modal-content .closeBtn {
+    background-color: #fff;
+    color: #6c63ff;
+    border: 2px solid #6c63ff;
+    cursor: pointer;
+}
 
 #saveEdit {
     color: white;
 }
 
-#closeModal {
-    color: white;
-}
 .modal_btn {
     display: flex;
     justify-content: space-between;
 }
+
+/* 뷰 모달 */
+#viewModal .modal-content {
+    margin-bottom: 40px;
+}
+#viewModal .modal-content h2 {
+    width: 100%;
+    line-height: 2.5;
+    border-bottom: 2px solid #6c63ff;
+    margin-bottom: 20px;
+}
+#viewModal p {
+    font-size: 18px;
+}
+
+#viewCategory {
+    padding: 4px 10px 6px 10px;
+    border-radius: 4px;
+    background-color: #9b98e1;
+    color: #fff;
+    font-weight: 600;
+}
+#closeViewModal {
+    margin: 0 auto;
+}
+
 /* 드래그앤드롭 */
 .dragging {
     opacity: 0.5;
@@ -354,4 +392,7 @@ select::-ms-expand {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40% auto;
+}
+/* 뷰 모달 */
+#viewModal {
 }

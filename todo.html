@@ -30,10 +30,12 @@
                                 placeholder="Add a memo..."
                             />
                             <select class="purple_input" id="newTodoCategory">
-                                <option value="">Select category</option>
-                                <option value="work">Work</option>
+                                <option value="" id="notyet">
+                                    Select category
+                                </option>
+                                <option value="study">Study</option>
                                 <option value="personal">Personal</option>
-                                <option value="shopping">Shopping</option>
+                                <option value="work">Work</option>
                             </select>
                         </div>
                         <button id="addItem" class="purple-button">ADD</button>
@@ -77,14 +79,14 @@
                         />
                         <select id="editCategory">
                             <option value="">Select category</option>
-                            <option value="work">Work</option>
+                            <option value="study">Study</option>
                             <option value="personal">Personal</option>
-                            <option value="shopping">Shopping</option>
+                            <option value="work">Work</option>
                         </select>
                     </div>
 
                     <div class="modal_btn">
-                        <button id="closeModal">Cancel</button>
+                        <button id="closeModal" class="closeBtn">Cancel</button>
                         <button id="saveEdit">Save</button>
                     </div>
                 </div>
@@ -92,14 +94,16 @@
             <!-- Todo 보기 모달 -->
             <div id="viewModal" class="modal">
                 <div class="modal-content">
-                    <span id="closeViewModal" class="close">&times;</span>
-                    <h2>Todo Details</h2>
-                    <p><strong>Text:</strong> <span id="viewText"></span></p>
-                    <p><strong>Memo:</strong> <span id="viewMemo"></span></p>
+                    <h2><span id="viewText"></span></h2>
                     <p>
                         <strong>Category:</strong>
                         <span id="viewCategory"></span>
                     </p>
+                    <p>
+                        <strong>Memo Content:</strong><br />
+                        <span id="viewMemo" class="mt10"></span>
+                    </p>
+                    <button id="closeViewModal" class="closeBtn">Cancel</button>
                 </div>
             </div>
         </div>
