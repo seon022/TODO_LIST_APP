@@ -1,0 +1,357 @@
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+li {
+    font-size: 20px;
+    line-height: 150%;
+}
+li.complete {
+    color: gray;
+}
+body {
+    background-color: #f7f7f7;
+}
+input,
+select {
+    outline: none; /* 기본 포커스 아웃라인 제거 */
+    background-color: transparent; /* 배경색 투명 */
+    color: inherit; /* 부모 요소의 글씨 색상 상속 */
+    appearance: none; /* 기본 스타일 제거 */
+}
+
+/* common */
+h2 {
+    margin-bottom: 40px;
+}
+.inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+/* Box Shadow Style */
+.box-shadow {
+    background-color: white; /* 배경색 */
+    border-radius: 10px; /* 모서리 둥글기 */
+    padding: 20px; /* 내부 여백 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.purple-button {
+    min-width: 100px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* 제목 */
+.app_title {
+    padding-top: 80px;
+    margin-bottom: 40px;
+}
+
+/* 새 할일 */
+.input_box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.input_box select {
+    margin-left: 10px;
+}
+.purple_input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #6c63ff;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+    padding-right: 30px;
+}
+
+input[type="text"]::placeholder {
+    color: #c0c0c0;
+}
+
+select {
+    appearance: none;
+    background-image: url("./img/Polygon\ 1.png");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+}
+
+select::-ms-expand {
+    display: none;
+}
+/* 할일 목록 */
+.todo_style {
+}
+
+/* search 영역 */
+.search {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.search-container {
+    position: relative;
+    width: 100%;
+    padding-right: 20px;
+}
+#searchInput:focus {
+    border-color: #6c63ff; /* 포커스 시 테두리 색상 유지 */
+}
+#searchButton {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    margin-top: -4px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#searchButton img {
+    width: 20px;
+    height: 20px;
+}
+.category select {
+    min-width: 120px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    height: 40px;
+}
+
+.drag-handle {
+    text-indent: -10000px;
+    width: 20px;
+    cursor: move;
+    background-image: url("./img/drag_grap_icon.png");
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 20px;
+}
+.checkbox-container {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+.todo-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #f7f7f7;
+    border: 2px solid #6c63ff;
+    border-radius: 3px;
+}
+
+.todo-checkbox:checked ~ .checkbox-label {
+    background-color: #6c63ff;
+}
+
+.checkbox-label:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo-checkbox:checked ~ .checkbox-label:after {
+    display: block;
+}
+
+.checkbox-label:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.drag-handle {
+    margin-right: 10px;
+    cursor: move;
+}
+
+.todo-content span {
+    display: block;
+    line-height: 40px;
+}
+
+.button-container {
+    display: flex;
+}
+
+.edit-btn,
+.delete-btn {
+    margin-left: 5px;
+}
+
+.todo-content {
+    flex-grow: 1;
+}
+
+.todo-content span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.todo-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.todo-content small {
+    font-size: 12px;
+    color: #999;
+}
+
+.button-container {
+    display: flex;
+}
+
+.edit-btn,
+.delete-btn {
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+}
+
+.edit-btn {
+    background-image: url("./img/edit_icon.png");
+}
+.delete-btn {
+    background-image: url("./img/trash-svgrepo-com\ 1.png");
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    color: #6a0dad;
+}
+/* 모달 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #6c63ff;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+    padding-right: 30px;
+}
+
+.modal-content button {
+    min-width: 100px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#saveEdit {
+    color: white;
+}
+
+#closeModal {
+    color: white;
+}
+.modal_btn {
+    display: flex;
+    justify-content: space-between;
+}
+/* 드래그앤드롭 */
+.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+.drag-over {
+    border-top: 3px solid #6c63ff;
+}
+
+.todo-item {
+    transition: all 0.3s ease;
+}
+
+/* empty */
+.empty {
+    min-height: 431px;
+    background-image: url(./img/empty.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40% auto;
+}

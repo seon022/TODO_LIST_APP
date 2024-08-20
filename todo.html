@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TODO APP</title>
+        <script defer src="./todo_main.js"></script>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="app_title">
+                <div class="inner"><h1>TODO LIST</h1></div>
+            </div>
+            <div class="new_todo_wrap inner">
+                <div class="box-shadow">
+                    <h2 class="new_todo_title">NEW TODO</h2>
+                    <div id="todoInput">
+                        <input
+                            class="purple_input"
+                            type="text"
+                            id="todoText"
+                            placeholder="Input your todo..."
+                        />
+                        <div class="input_box">
+                            <input
+                                class="purple_input"
+                                type="text"
+                                id="todoMemo"
+                                placeholder="Add a memo..."
+                            />
+                            <select class="purple_input" id="newTodoCategory">
+                                <option value="">Select category</option>
+                                <option value="work">Work</option>
+                                <option value="personal">Personal</option>
+                                <option value="shopping">Shopping</option>
+                            </select>
+                        </div>
+                        <button id="addItem" class="purple-button">ADD</button>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="purple_input"
+                        placeholder="Search todo..."
+                    />
+                    <button id="searchButton">
+                        <img src="./img/search.png" alt="Search" />
+                    </button>
+                </div>
+                <div class="category">
+                    <select class="purple_input" id="filterCategory">
+                        <option value="">ALL</option>
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="shopping">Shopping</option>
+                    </select>
+                </div>
+            </div>
+            <div class="todo_list_wrap">
+                <ul id="todoList" class="inner"></ul>
+            </div>
+            <!--TODO 수정모달 -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <h2>TODO EDIT</h2>
+                    <input type="text" id="editText" placeholder="Edit todo" />
+                    <div class="input_box">
+                        <input
+                            type="text"
+                            id="editMemo"
+                            placeholder="Edit memo"
+                        />
+                        <select id="editCategory">
+                            <option value="">Select category</option>
+                            <option value="work">Work</option>
+                            <option value="personal">Personal</option>
+                            <option value="shopping">Shopping</option>
+                        </select>
+                    </div>
+
+                    <div class="modal_btn">
+                        <button id="closeModal">Cancel</button>
+                        <button id="saveEdit">Save</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Todo 보기 모달 -->
+            <div id="viewModal" class="modal">
+                <div class="modal-content">
+                    <span id="closeViewModal" class="close">&times;</span>
+                    <h2>Todo Details</h2>
+                    <p><strong>Text:</strong> <span id="viewText"></span></p>
+                    <p><strong>Memo:</strong> <span id="viewMemo"></span></p>
+                    <p>
+                        <strong>Category:</strong>
+                        <span id="viewCategory"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
