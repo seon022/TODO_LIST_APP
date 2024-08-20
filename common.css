@@ -1,0 +1,55 @@
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+li {
+    font-size: 20px;
+    line-height: 150%;
+}
+li.complete {
+    color: gray;
+}
+body {
+    background-color: #f7f7f7;
+}
+input,
+select {
+    outline: none; /* 기본 포커스 아웃라인 제거 */
+    background-color: transparent; /* 배경색 투명 */
+    color: inherit; /* 부모 요소의 글씨 색상 상속 */
+    appearance: none; /* 기본 스타일 제거 */
+}
+
+/* common */
+h2 {
+    margin-bottom: 40px;
+}
+.inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+/* Box Shadow Style */
+.box-shadow {
+    background-color: white; /* 배경색 */
+    border-radius: 10px; /* 모서리 둥글기 */
+    padding: 20px; /* 내부 여백 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+}
+.mt10 {
+    display: block;
+    margin-top: 10px;
+}
+
+.purple-button {
+    min-width: 100px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

@@ -152,7 +152,7 @@ function addTodoItem(todo) {
         todo.completed = newCheckbox.checked;
         if (newCheckbox.checked) {
             newSpan.style.textDecoration = "line-through";
-            newSpan.style.color = "#666";
+            newSpan.style.color = "#999";
         } else {
             newSpan.style.textDecoration = "none";
             newSpan.style.color = "#222";
