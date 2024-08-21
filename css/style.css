@@ -313,9 +313,9 @@
 
 /* empty */
 .empty {
+    min-height: 430px;
     background-image: url("../img/empty.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40% auto;
-    transition: all 0.3s ease;
 }
