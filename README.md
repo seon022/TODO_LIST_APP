@@ -26,7 +26,7 @@
 
 ## 기술 스택
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - Vanilla JavaScript
 - Local Storage API
