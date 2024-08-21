@@ -60,7 +60,15 @@ addBtn.onclick = () => {
 
     // text길이가 0보다 커야 함
     let valid = true;
-    textCheck(newTodo, todoText);
+
+    // 텍스트가 없을 경우 경고 메시지로 placeholder 변경
+    if (newTodo.text.trim().length === 0) {
+        todoText.placeholder = "Todo를 입력해주세요!";
+        todoText.focus();
+        valid = false;
+    } else {
+        todoText.placeholder = "Input your todo..."; // 기존 placeholder로 복구
+    }
 
     if (valid) {
         // todos 배열에 새로운 todo 추가
@@ -77,18 +85,6 @@ addBtn.onclick = () => {
         clearInputs();
     }
 };
-// 유효성 확인
-function textCheck(newTodo, todoText) {
-    // 텍스트가 없을 경우 경고 메시지로 placeholder 변경
-    if (newTodo.text.trim().length === 0) {
-        todoText.placeholder = "Text를 입력해주세요!";
-        todoText.classList.add("warning"); // 선택적으로 경고 시각 효과 추가
-        valid = false;
-    } else {
-        todoText.placeholder = "Input your todo..."; // 기존 placeholder로 복구
-        todoText.classList.remove("warning");
-    }
-}
 
 // 전체 todos 배열을 기반으로 리스트 렌더링
 function renderTodos() {
@@ -121,7 +117,7 @@ function addTodoItem(todo) {
     newLi.classList.add("todo-item");
     newLi.dataset.id = todo.id;
 
-    // 드래그 핸들 아이콘
+    // 드래그 핸들
     const dragHandle = document.createElement("div");
     dragHandle.classList.add("drag-handle");
     dragHandle.innerHTML = "handle";
@@ -303,7 +299,8 @@ saveEdit.onclick = function () {
             // 모달 닫기
             editModal.style.display = "none";
         } else {
-            prompt("todo 를 입력해주세요!");
+            alert("todo 를 입력해주세요!");
+            editText.focus();
         }
     }
 };
@@ -326,10 +323,13 @@ window.onclick = function (event) {
     }
 };
 
-// Drag and drop functions
+// Drag and drop
+// e.target은 드래그가 시작된 요소
+// closest("li")는 가장 가까운 상위 <li> 요소
 function dragStart(e) {
     draggedItem = e.target.closest("li");
     draggedItemIndex = Array.from(list.children).indexOf(draggedItem);
+    // 드래그 작업을 시작한 후에 스타일을 적용
     setTimeout(() => {
         draggedItem.classList.add("dragging");
     }, 0);
@@ -337,17 +337,15 @@ function dragStart(e) {
 
 function dragEnd() {
     draggedItem.classList.remove("dragging");
-    updateOrder();
     // 드래그 종료 시 순서 업데이트
-    draggedItem = null;
-    draggedItemIndex = null;
+    updateOrder();
 }
 
 function dragOver(e) {
     e.preventDefault();
     const currentY = e.clientY;
 
-    // Y 좌표가 변경되었을 때만 재정렬 로직을 실행
+    // Y 좌표가 변경되었을 때만 재정렬
     if (currentY !== lastY) {
         const afterElement = getDragAfterElement(list, currentY);
         const currentElement = document.querySelector(".dragging");

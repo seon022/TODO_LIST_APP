@@ -44,8 +44,9 @@
     width: 100%;
     padding-right: 20px;
 }
+/* 포커스 시 테두리 색상 유지 */
 #searchInput:focus {
-    border-color: #6c63ff; /* 포커스 시 테두리 색상 유지 */
+    border-color: #6c63ff;
 }
 #searchButton {
     position: absolute;
@@ -71,6 +72,7 @@
     padding: 10px 20px;
     font-size: 16px;
 }
+/* todo 항목 li */
 .todo-item {
     display: flex;
     align-items: center;
@@ -78,7 +80,6 @@
     border-bottom: 1px solid #6c63ff;
     height: 40px;
 }
-
 .drag-handle {
     text-indent: -10000px;
     width: 20px;
@@ -89,6 +90,7 @@
     background-position: center center;
     margin-right: 20px;
 }
+/* 체크박스 */
 .checkbox-container {
     position: relative;
     display: inline-block;
@@ -116,22 +118,23 @@
     border: 2px solid #6c63ff;
     border-radius: 3px;
 }
-
+/* 체크된 상태의 체크박스의 형제 결합자 ~
+체크박스가 선택되었을 때 라벨의 배경색 변경 */
 .todo-checkbox:checked ~ .checkbox-label {
     background-color: #6c63ff;
 }
 
-.checkbox-label:after {
+.checkbox-label::after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.todo-checkbox:checked ~ .checkbox-label:after {
+.todo-checkbox:checked ~ .checkbox-label::after {
     display: block;
 }
 
-.checkbox-label:after {
+.checkbox-label::after {
     left: 6px;
     top: 2px;
     width: 5px;
@@ -170,11 +173,6 @@
     font-size: 14px;
     color: #666;
     margin: 5px 0;
-}
-
-.todo-content small {
-    font-size: 12px;
-    color: #999;
 }
 
 .button-container {
@@ -280,6 +278,9 @@
 }
 
 /* 뷰 모달 */
+.viewModal-label {
+    font-size: 24px;
+}
 #viewModal .modal-content {
     margin-bottom: 40px;
 }

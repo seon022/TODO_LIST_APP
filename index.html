@@ -100,10 +100,13 @@
                     </div>
                 </div>
             </section>
-            <!-- Todo 보기 모달 -->
+            <!-- Todo 뷰 모달 -->
             <section id="viewModal" class="modal">
                 <div class="modal-content">
-                    <h2><span id="viewText"></span></h2>
+                    <h2>
+                        <span class="viewModal-label">Todo : </span
+                        ><span id="viewText"></span>
+                    </h2>
                     <p>
                         <strong>Category:</strong>
                         <span id="viewCategory"></span>
@@ -112,7 +115,7 @@
                         <strong>Memo Content:</strong><br />
                         <span id="viewMemo" class="mt10"></span>
                     </p>
-                    <button id="closeViewModal" class="closeBtn">Cancel</button>
+                    <button id="closeViewModal" class="closeBtn">Close</button>
                 </div>
             </section>
         </div>
