@@ -36,7 +36,8 @@ function loadTodos() {
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
         todos = JSON.parse(storedTodos);
-        todos.sort((a, b) => b.orderNum - a.orderNum); // 역순서대로 정렬
+        todos.sort((a, b) => b.orderNum - a.orderNum);
+        // 역순서대로 정렬
     }
 
     renderTodos(); // 로드한 todos로 렌더링
@@ -47,12 +48,12 @@ function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// 새로운 todo 추가 시 데이터업데이트 & 전체 todos 렌더링!!
+// 새로운 todo 추가 시 데이터 업데이트 & 전체 todos 렌더링!!
 addBtn.onclick = () => {
     const newTodo = {
         id: Date.now(),
-        text: todoText.value, // 입력값 앞뒤 공백 제거
-        memo: todoMemo.value, // 입력값 앞뒤 공백 제거
+        text: todoText.value,
+        memo: todoMemo.value,
         category: todoCategory.value,
         completed: false,
         orderNum: todos.length,
@@ -67,7 +68,8 @@ addBtn.onclick = () => {
         todoText.focus();
         valid = false;
     } else {
-        todoText.placeholder = "Input your todo..."; // 기존 placeholder로 복구
+        todoText.placeholder = "Input your todo...";
+        // 기존 placeholder로 복구
     }
 
     if (valid) {
@@ -111,7 +113,7 @@ function handleCheckboxChange(todo, checkbox, textElement) {
     }
     saveTodos();
 }
-
+// 할일 항목 DOM
 function addTodoItem(todo) {
     const newLi = document.createElement("li");
     newLi.classList.add("todo-item");
@@ -275,6 +277,7 @@ function openEditModal(todo) {
 
 saveEdit.onclick = function () {
     const todoIndex = todos.findIndex((todo) => todo.id === currentEditingId);
+
     if (todoIndex !== -1) {
         // todos 배열 업데이트
         todos[todoIndex] = {

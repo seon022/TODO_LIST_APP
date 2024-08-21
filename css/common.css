@@ -73,7 +73,7 @@ h2 {
     box-sizing: border-box;
     background-color: white; /* 배경색 */
     border-radius: 10px; /* 모서리 둥글기 */
-    padding: 20px; /* 내부 여백 */
+    padding: 30px 20px; /* 내부 여백 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
     transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
 }

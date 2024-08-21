@@ -8,6 +8,11 @@
 .new_todo_wrap {
     margin-bottom: 4rem;
 }
+.new_todo_title {
+}
+.todo_alert {
+    color: red;
+}
 .input_box {
     display: flex;
     justify-content: space-between;
@@ -29,8 +34,8 @@
     background-color: white;
     padding-right: 30px;
 }
-#addItem {
-    margin: 0 auto;
+.add_Btn {
+    text-align: center;
 }
 
 /* search 영역 */
