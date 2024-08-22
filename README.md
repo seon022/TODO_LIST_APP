@@ -24,9 +24,3 @@
 - 할 일 카테고리 분류
 - 로컬 스토리지를 이용한 데이터 저장
 
-## 기술 스택
-
-- HTML
-- CSS
-- Vanilla JavaScript
-- Local Storage API
